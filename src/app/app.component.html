@@ -1,11 +1,14 @@
-<body>
-<h1>
-  ddddd
-</h1>
-<h1 class="changeColor ">zzzzzzzzzzz</h1>
-<h1>
-  ddsasasasasasdddd dupa
-</h1>
-<p>cokolwie</p>
-<jss-one></jss-one>
-</body>
+<div class="m-2">
+  <button type="button" class="btn btn-primary" (click)="toogleExists(false)">
+    <span>ONE</span>
+  </button>
+  <button type="button" class="btn btn-primary ml-2" (click)="toogleExists(true)">
+    <span>TWO</span>
+  </button>
+</div>
+
+<div class="m-3">
+  <!--margines-->
+  <jss-two *ngIf="exists"></jss-two> <!--dyrektywa strukturalna-->
+  <jss-one *ngIf="!exists"></jss-one>
+</div>

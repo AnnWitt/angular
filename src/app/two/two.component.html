@@ -1,0 +1,24 @@
+<p>ddddd</p>
+
+<div class="row container d-flex justify-content-center"> Formularz row container    
+  <input type="text" [(ngModel)]="superhero"> 
+  <br>
+  <p>{{superhero}}</p>   
+    <!-- ()okragle tz ze cos wychodzi z elementu (np click - faas funkcja, ktroa cos robi) -->
+    <!-- [] wejscie do elementu -->
+    <!-- po wprowadzeniu danych sie wypelnia superhero. Zmieniamy w jednym, zmienia sie w drugim /user/kod -->
+</div>
+
+<div>
+    <p>Name</p>
+    <!-- [] sami piszemy dyrektywy -->
+    <ul [ngSwitch]="superhero">
+        <li *ngSwitchCase="'Groot'">Groot</li>
+        <li *ngSwitchCase="'Ironman'">Ironman</li>
+        <li *ngSwitchCase="'Hulk'">Hulk</li>
+        <li *ngSwitchCase="'Thor'">Thor</li>
+        <li *ngSwitchCase="'Spiderman'">Spiderman</li>
+        <li *ngSwitchDefault>{{superhero !== '' ? 'Batman': superhero}}</li>
+      </ul>
+      <!-- <p>{{superhero}}</p>   -->
+</div>

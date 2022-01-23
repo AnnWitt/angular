@@ -1,1 +1,57 @@
-<p>one works!</p>
+<p *ngFor="let l of list">
+  one works!<span>{{ l }}<br /></span>
+</p>
+;
+<!-- <p *ngFor="let l of arrayOfObjectsI">one works!<span>{{l}}<br></span></p>;  -->
+<!-- iteracja po tablicy obiektów -->
+<p *ngFor="let l of arrayOfObjectsI">
+  one works!<span>{{ l.name }}{{ " <-dupa-> " }}{{ l.age }}<br /></span>
+</p>
+;
+<!-- <p *ngFor="let l of arrayOfObjectsI">one works!<span>{{l.age}}<br></span></p>;  -->
+<br />
+<p *ngFor="let l of arrayOfObjectsI">
+  one works!<span>{{ l.name + "   " + l.age }}<br /></span>
+</p>
+;
+
+<!-- iteracja po obiekcia -->
+
+<!-- dostajemy keyvalue -->
+<p *ngFor="let l of simplestObject|keyvalue">Iteracja po okiekcie -> <span>{{l.key}}{{l.value}}<br /></span>
+  </p>
+<!-- Zadanie -->
+<p *ngFor="let m of moviesArray">
+    Movies<span>{{m.name}}{{" "}}{{m.department}}{{" "}}{{m.manager}}{{" "}}{{m.salary}}{{" "}}<br /></span>
+  </p>
+
+<p>druga opcja
+     <!-- <string, V></string> -->
+</p>
+  <p *ngFor="let m of moviesArray | keyvalue">
+    <!-- Movies <span>{{m.key}}{{m.value}}<br /></span> tu wyswietli indeks tablicy + [obiekt] -->
+    Movies <span>{{m.key}}{{m.value}}<br /></span>
+  </p>
+
+<!-- aby sie dobrac do wartosci z kodu dwa {{}} komentarze ctrl slash - tu trzeba pilnowac tagów bo cale linie bierze -->
+<!-- jak hidden to ukryte tylko dla usera a w podgladzie strony bedzie, jeżeli
+structural directive to nie podejrzymy ze źrodla-->
+<p *ngFor="let any of arrayOfString">
+  <span>
+    {{ any }}
+  </span>
+</p>
+
+<p>BLAAAAAAAAAAAAA</p>
+<div *ngFor="let item of moviesArray; let i = index" >
+    <p> {{i + 1}}. {{item.name}}: {{item.manager ? item.manager : 'EMPTY'}} </p>
+    <p> {{i + 1}}. {{item.name}}: {{item.manager ?? 'EMPTY'}} </p>
+ <!-- to ?? to jak nie ma to użyj to drugie. pierwsze to na zasadzi co, jezeli true, jezeli false -->
+</div>
+
+<p>Iterate over obcjects of objects</p>
+<div *ngFor="let m of moviesObject | keyvalue">
+    <p>
+        {{m.key}} - {{m.value.name}}: {{m.value.manager ? m.value.manager: 'EMPTY'}}
+    </p>
+</div>
